@@ -34,6 +34,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - run: npm install
+
+       # New step: Debug environment variables
+      - name: Debug Environment Variables
+        run: |
+          echo "Checking environment variables:"
+          echo "NEXT_PUBLIC_GISCUS_REPO is set: ${{ secrets.NEXT_PUBLIC_GISCUS_REPO != '' }}"
+          echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID is set: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID != '' }}"
+          echo "NEXT_PUBLIC_GISCUS_CATEGORY is set: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY != '' }}"
+          echo "NEXT_PUBLIC_GISCUS_CATEGORY_ID is set: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID != '' }}"
+          
+          # Log the variables without exposing their values
+          if [ -n "$NEXT_PUBLIC_GISCUS_REPO" ]; then echo "NEXT_PUBLIC_GISCUS_REPO is non-empty"; else echo "NEXT_PUBLIC_GISCUS_REPO is empty"; fi
+          if [ -n "$NEXT_PUBLIC_GISCUS_REPOSITORY_ID" ]; then echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID is non-empty"; else echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID is empty"; fi
+          if [ -n "$NEXT_PUBLIC_GISCUS_CATEGORY" ]; then echo "NEXT_PUBLIC_GISCUS_CATEGORY is non-empty"; else echo "NEXT_PUBLIC_GISCUS_CATEGORY is empty"; fi
+          if [ -n "$NEXT_PUBLIC_GISCUS_CATEGORY_ID" ]; then echo "NEXT_PUBLIC_GISCUS_CATEGORY_ID is non-empty"; else echo "NEXT_PUBLIC_GISCUS_CATEGORY_ID is empty"; fi
+        env:
+          NEXT_PUBLIC_GISCUS_REPO: ${{ secrets.NEXT_PUBLIC_GISCUS_REPO }}
+          NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
+          NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
+          NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
+          
       - run: npm run build
         env:
           EXPORT: 1
@@ -43,6 +64,7 @@ jobs:
           NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
           NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
           NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
