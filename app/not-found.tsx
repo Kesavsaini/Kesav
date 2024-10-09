@@ -3,8 +3,8 @@ import Error404 from '@/data/Error404.svg'
 
 export default function NotFound() {
   return (
-    <div className="h-full w-full flex flex-col gap-4 justify-center items-center p-4">
-      <Error404 className="w-[90%] h-[30rem]"></Error404>
+    <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-4">
+      <Error404 className="h-[30rem] w-[90%]"></Error404>
       <div className="max-w-md">
         <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
           Sorry we couldn't find this page.

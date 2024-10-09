@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
-import { Space_Grotesk,Poppins } from 'next/font/google'
+import { Space_Grotesk, Poppins } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
@@ -18,7 +18,7 @@ const space_grotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
 })
 
-const poppins = Poppins({weight:"400",subsets:['latin']})
+const poppins = Poppins({ weight: '400', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     default: siteMetadata.title,
     template: `%s | ${siteMetadata.title}`,
   },
-  icons:{
-    icon:"/icon.png"
+  icons: {
+    icon: '/icon.png',
   },
   description: siteMetadata.description,
   openGraph: {

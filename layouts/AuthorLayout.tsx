@@ -19,7 +19,7 @@ export default function AuthorLayout({ children, content }: Props) {
             About me
           </h1>
         </div>
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0 p-4 glassMorphic  bg-white dark:bg-[rgba(0,0,0,0.25)]">
+        <div className="glassMorphic items-start space-y-2 bg-white p-4 dark:bg-[rgba(0,0,0,0.25)] xl:grid xl:grid-cols-3  xl:gap-x-8 xl:space-y-0">
           <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (
               <Image
@@ -40,7 +40,7 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind="x" href={twitter} />
             </div>
           </div>
-          <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2 w-full h-full flex justify-center items-center p-4  rounded-2xl  bg-[rgba(245,245,220,0.6)] dark:bg-[rgba(0,0,0,0.25)]">
+          <div className="prose flex h-full w-full max-w-none items-center justify-center rounded-2xl bg-[rgba(245,245,220,0.6)] p-4 pb-8 pt-8  dark:prose-invert  dark:bg-[rgba(0,0,0,0.25)] xl:col-span-2">
             {children}
           </div>
         </div>

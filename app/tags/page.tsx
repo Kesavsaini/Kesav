@@ -13,12 +13,10 @@ export default async function Page() {
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
-        <div className="glassMorphic flex flex-wrap sm:items-center sm:justify-center gap-4 bg-[#F5F5DC] p-8 dark:bg-[rgba(0,0,0,0.25)]">
+        <div className="glassMorphic flex flex-wrap gap-4 bg-[#F5F5DC] p-8 dark:bg-[rgba(0,0,0,0.25)] sm:items-center sm:justify-center">
           {tagKeys.length === 0 && 'No tags found.'}
-          {sortedTags.map((t) => {
-            return (
-              <Designedtag t={t} tagCounts={tagCounts} />
-            )
+          {sortedTags.map((t, index) => {
+            return <Designedtag key={index} t={t} tagCounts={tagCounts} />
           })}
         </div>
       </div>
@@ -35,7 +33,7 @@ const Designedtag = ({ t, tagCounts }) => {
         <Tag text={t} />
         <Link
           href={`/tags/${slug(t)}`}
-          className="-ml-2 text-sm font-semibold uppercase text-black dark:text-white group-hover:text-white dark:group-hover:text-black"
+          className="-ml-2 text-sm font-semibold uppercase text-black group-hover:text-white dark:text-white dark:group-hover:text-black"
           aria-label={`View posts tagged ${t}`}
         >
           {` (${tagCounts[t]})`}

@@ -34,9 +34,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   const basePath = path.split('/')[0]
 
   return (
-    <SectionContainer >
+    <SectionContainer>
       <ScrollTopAndComment />
-      <article className=''>
+      <article className="">
         <div className="">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">

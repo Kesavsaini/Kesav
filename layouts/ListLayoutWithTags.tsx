@@ -121,8 +121,8 @@ export default function ListLayoutWithTags({
             </div>
           </div>
           <div>
-            <ul className='flex flex-col gap-4'>
-              {displayPosts.map((post) => {
+            <ul className="flex flex-col gap-4">
+              {displayPosts.map((post, index) => {
                 const { path, date, title, summary, tags } = post
                 return (
                   // <li key={path} className="py-5">
@@ -152,7 +152,7 @@ export default function ListLayoutWithTags({
                   //     </div>
                   //   </article>
                   // </li>
-                  <BlogCard post={post}/>
+                  <BlogCard key={index} post={post} inHome={false} />
                 )
               })}
             </ul>

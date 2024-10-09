@@ -4,7 +4,7 @@ import Link from './Link'
 const Card = ({ title, description, imgSrc, href, bgClr }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
-      className={`${imgSrc && 'h-full'}  overflow-hidden rounded-md p-4 border-4 border-black dark:border-white`}
+      className={`${imgSrc && 'h-full'}  overflow-hidden rounded-md border-4 border-black p-4 dark:border-white`}
       style={{ backgroundColor: bgClr }}
     >
       {imgSrc &&
@@ -13,7 +13,7 @@ const Card = ({ title, description, imgSrc, href, bgClr }) => (
             <Image
               alt={title}
               src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48 rounded-sm"
+              className="rounded-sm object-cover object-center md:h-36 lg:h-48"
               width={544}
               height={306}
             />
@@ -45,7 +45,7 @@ const Card = ({ title, description, imgSrc, href, bgClr }) => (
             aria-label={`Link to ${title}`}
           >
             <div
-              className="mb-2 inline-flex w-full items-center justify-center rounded-md bg-primary-600 px-6 py-3 text-lg text-white hover:bg-primary-400 sm:mb-0 sm:w-auto border-2 border-black dark:border-white"
+              className="mb-2 inline-flex w-full items-center justify-center rounded-md border-2 border-black bg-primary-600 px-6 py-3 text-lg text-white hover:bg-primary-400 dark:border-white sm:mb-0 sm:w-auto"
               data-primary="green-400"
               data-rounded="rounded-2xl"
               data-primary-reset="{}"
