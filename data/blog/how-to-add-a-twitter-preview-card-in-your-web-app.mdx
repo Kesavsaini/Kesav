@@ -1,0 +1,66 @@
+---
+title: How to Add a Twitter Preview Card in Your Web App
+date: '11-10-2024'
+tags: ['tutorial','indie hacking','tips']
+draft: false
+summary: If you want your web app to stand out on Twitter, adding Twitter Cards is essential. Twitter Cards allow you to attach rich media to tweets, enhancing your content's visibility. In this post, we'll explore how to implement Twitter Preview Cards in your web application using Next.js and React.js.
+layout: PostSimple
+bibliography: references-data.bib
+---
+
+
+
+
+## What Are Twitter Cards?
+
+Twitter Cards enable you to add media-rich content to your tweets. There are several types of Twitter Cards, but the most common ones are:
+
+1. **Summary Card**: A basic card with a title, description, and thumbnail image.
+2. **Summary Card with Large Image**: Similar to the Summary Card but with a larger image.
+3. **App Card**: Designed for mobile apps, includes a link to download.
+
+## Steps to Implement Twitter Preview Cards
+
+### Step 1: Choose Your Card Type
+
+Decide which type of Twitter Card you want to use. For this example, we’ll create a Summary Card.
+
+### Step 2: Add Meta Tags in Your HTML
+
+You need to add specific meta tags in the `<head>` section of your HTML to define the Twitter Card's properties. Here’s an example for a Summary Card:
+
+```html
+<head>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Your Web App Title" />
+  <meta name="twitter:description" content="A brief description of your web app." />
+  <meta name="twitter:image" content="https://yourwebsite.com/path/to/image.jpg" />
+  <meta name="twitter:site" content="@your_twitter_handle" />
+  <meta name="twitter:creator" content="@your_twitter_handle" />
+</head>
+```
+### Implement in Next.js
+in Next Js we use [meta-data](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) object in root layout to define meta data, we can add our twitter preview and other site preview using this object
+
+```jsx
+export  const  metadata= {
+openGraph: {
+title:  siteMetadata.title,
+description:  siteMetadata.description,
+url:  './',
+siteName:  siteMetadata.title,
+images: /youimage.png,
+locale:  'en_US',
+type:  'website',
+   },  // For preview on other sites
+twitter: {
+title:  siteMetadata.title,
+card:  'summary_large_image',
+images: /youimage.png,
+   }, // for preview on twitter
+}
+```
+### Step 4: Test Your Card
+
+Use the [Twitter Card Validator](https://cards-dev.twitter.com/validator) to test your implementation. Simply enter the URL of your web page, and the tool will show you how your card will appear on Twitter.
+    
