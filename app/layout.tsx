@@ -72,7 +72,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${poppins.className} scroll-smooth`}
       suppressHydrationWarning
     >
-      <script defer src="https://cloud.umami.is/script.js" data-website-id={process.env.NEXT_UMAMI_WEBSITE_ID}></script>
+      <script
+        defer
+        src="https://cloud.umami.is/script.js"
+        data-website-id={process.env.NEXT_UMAMI_WEBSITE_ID}
+      ></script>
       <link
         rel="apple-touch-icon"
         sizes="76x76"

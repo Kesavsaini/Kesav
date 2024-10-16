@@ -1,15 +1,12 @@
 ---
 title: How to Add a Twitter Preview Card in Your Web App
 date: '10-11-2024'
-tags: ['tutorial','indie hacking','tips']
+tags: ['tutorial', 'indie hacking', 'tips']
 draft: false
 summary: If you want your web app to stand out on Twitter, adding Twitter Cards is essential. Twitter Cards allow you to attach rich media to tweets, enhancing your content's visibility. In this post, we'll explore how to implement Twitter Preview Cards in your web application using Next.js and React.js.
 layout: PostSimple
 bibliography: references-data.bib
 ---
-
-
-
 
 ## What Are Twitter Cards?
 
@@ -39,7 +36,9 @@ You need to add specific meta tags in the `<head>` section of your HTML to defin
   <meta name="twitter:creator" content="@your_twitter_handle" />
 </head>
 ```
+
 ### Implement in Next.js
+
 in Next Js we use [meta-data](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) object in root layout to define meta data, we can add our twitter preview and other site preview using this object
 
 ```jsx
@@ -60,7 +59,7 @@ images: /youimage.png,
    }, // for preview on twitter
 }
 ```
+
 ### Step 4: Test Your Card
 
 Use the [Twitter Card Validator](https://cards-dev.twitter.com/validator) to test your implementation. Simply enter the URL of your web page, and the tool will show you how your card will appear on Twitter.
-    

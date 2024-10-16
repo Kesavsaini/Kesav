@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
       - run: npm install
 
-       # New step: Debug environment variables
+        # New step: Debug environment variables
       - name: Debug Environment Variables
         run: |
           echo "Checking environment variables:"
@@ -46,7 +46,7 @@ jobs:
           echo "NEXT_PUBLIC_GISCUS_CATEGORY_ID is set: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID != '' }}"
           echo "NEXT_UMAMI_ID is set: ${{ secrets.NEXT_UMAMI_ID  != '' }}"
           echo "NEXT_UMAMI_WEBSITE_ID is set: ${{ secrets.NEXT_UMAMI_WEBSITE_ID  != '' }}"
-          
+
           # Log the variables without exposing their values
           if [ -n "$NEXT_PUBLIC_GISCUS_REPO" ]; then echo "NEXT_PUBLIC_GISCUS_REPO is non-empty"; else echo "NEXT_PUBLIC_GISCUS_REPO is empty"; fi
           if [ -n "$NEXT_PUBLIC_GISCUS_REPOSITORY_ID" ]; then echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID is non-empty"; else echo "NEXT_PUBLIC_GISCUS_REPOSITORY_ID is empty"; fi
@@ -59,9 +59,9 @@ jobs:
           NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
           NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
           NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
-          NEXT_UMAMI_ID:  ${{ secrets.NEXT_UMAMI_ID }}
-          NEXT_UMAMI_WEBSITE_ID:  ${{ secrets.NEXT_UMAMI_WEBSITE_ID }}
-          
+          NEXT_UMAMI_ID: ${{ secrets.NEXT_UMAMI_ID }}
+          NEXT_UMAMI_WEBSITE_ID: ${{ secrets.NEXT_UMAMI_WEBSITE_ID }}
+
       - run: npm run build
         env:
           EXPORT: 1
@@ -71,8 +71,8 @@ jobs:
           NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_REPOSITORY_ID }}
           NEXT_PUBLIC_GISCUS_CATEGORY: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY }}
           NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${{ secrets.NEXT_PUBLIC_GISCUS_CATEGORY_ID }}
-          NEXT_UMAMI_ID:  ${{ secrets.NEXT_UMAMI_ID }}
-          NEXT_UMAMI_WEBSITE_ID:  ${{ secrets.NEXT_UMAMI_WEBSITE_ID }}
+          NEXT_UMAMI_ID: ${{ secrets.NEXT_UMAMI_ID }}
+          NEXT_UMAMI_WEBSITE_ID: ${{ secrets.NEXT_UMAMI_WEBSITE_ID }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
