@@ -14,6 +14,13 @@ const projectsData: Project[] = [
     href: 'https://landing-ease.vercel.app/',
     bgClr: '#ea580c',
   },
+  {
+    title: 'Waitlistmaker.pro',
+    description: `A Waitlist Generator for your SaaS Product`,
+    imgSrc: '/static/images/waitlistmaker.png',
+    href: 'https://waitlistmaker.pro/',
+    bgClr: '#eab308',
+  },
 ]
 
 export default projectsData
